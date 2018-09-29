@@ -1,0 +1,29 @@
+﻿<Window x:Class="Histogram_ver5._1.Part_SelectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Histogram_ver5._0"
+        mc:Ignorable="d"
+        Title="PartSelectWindow"
+        WindowStyle="None"
+        Width="461"
+        Height="301"
+        WindowStartupLocation="Manual"
+        Loaded="Window_Loaded"
+        IsVisibleChanged="Window_IsVisibleChanged">
+    <Grid Style="{StaticResource myText}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid x:Name="PartsHolder_GRD"
+              Grid.Row="0" />
+        <Button x:Name="Unite_BTN"
+                Grid.Row="1"
+                Style="{StaticResource myBtntrue}"
+                Click="Unite_BTN_Click">
+            <TextBlock>Unite</TextBlock>
+        </Button>
+    </Grid>
+</Window>
