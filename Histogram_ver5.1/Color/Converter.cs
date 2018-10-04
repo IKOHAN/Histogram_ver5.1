@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Histogram_ver5._1.Exception;
+using Histogram_ver5._1.Exceptions;
 
 namespace Histogram_ver5._1 {
    static class Converter {
