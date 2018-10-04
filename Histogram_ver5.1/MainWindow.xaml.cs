@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Histogram_ver5._1.Exceptions;
+using Histogram_ver5._1.ViewModeling;
 
 namespace Histogram_ver5._1 {
     public enum Norma {
@@ -39,21 +41,21 @@ namespace Histogram_ver5._1 {
             InitializeComponent();
         }
         Norma GetNorma = Norma.Default;
-        ////ViewModel VM;
-        //Part_SelectWindow PartSelect;
-        //ImageAndHistogramWindow Image_Show;
+        ViewModel VM;
+        Part_SelectWindow PartSelect;
+        ImageAndHistogramWindow Image_Show;
         //bool Loads = false;
         //bool? WindSize_TB_Color, NumbOfStarts_TB_Color;
         private void Window_Loaded(object sender, RoutedEventArgs e) {
-            //Image_Show = new ImageAndHistogramWindow(this);
-            //PartSelect = new Part_SelectWindow(this);
-            //VM = new ViewModel(this, Image_Show, PartSelect);
+            Image_Show = new ImageAndHistogramWindow(this);
+            PartSelect = new Part_SelectWindow(this);
+            VM = new ViewModel(this, Image_Show, PartSelect);
             ////ViewModel.MainWindow_Loaded();
             //Loads = true;
         }
         #region Loading_SP
         private void Loading_SP_Load_BTN_Click(object sender, RoutedEventArgs e) {
-            //ViewModel.LoadingBTN();
+            ViewModel.Load_BTN_Click();
         }
 
         private void Loading_SP_Restore_BTN_Click(object sender, RoutedEventArgs e) {

@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,6 +65,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Exceptions\IndexOutOfFrameException.cs" />
+    <Compile Include="Exceptions\UnknownException.cs" />
+    <Compile Include="Image\Image.cs" />
+    <Compile Include="Output\Output.cs" />
+    <Compile Include="ViewModel\Main\Loading_SP.cs" />
+    <Compile Include="ViewModel\ViewModel.cs" />
     <Page Include="ImageAndHistogramWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -75,6 +83,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Color\Converter.cs" />
+    <Compile Include="Color\HSV.cs" />
+    <Compile Include="Color\ColorBase.cs" />
+    <Compile Include="Color\RGB.cs" />
+    <Compile Include="Exceptions\IncorrectNumberofParams.cs" />
+    <Compile Include="Exceptions\IncorrectSchemeInput.cs" />
     <Compile Include="ImageAndHistogramWindow.xaml.cs">
       <DependentUpon>ImageAndHistogramWindow.xaml</DependentUpon>
     </Compile>
@@ -91,6 +105,8 @@
     <Compile Include="Part_SelectWindow.xaml.cs">
       <DependentUpon>Part_SelectWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pixel\Pixel.cs" />
+    <Compile Include="Pixel\PixPos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -116,6 +132,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\ImgandHist\" />
+    <Folder Include="ViewModel\PartSelect\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
