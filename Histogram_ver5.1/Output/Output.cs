@@ -20,6 +20,11 @@ namespace Histogram_ver5._1.Outputs {
     //}
     //delegate ColorBase GetOutColor(ColorBase color);
    static class Output {
+        /// <summary>
+        /// Метод для создания результирующего изображения, предназначенного для вывода.
+        /// </summary>
+        /// <param name="pixels">Набор пикселей на основе которого будет создано изображение.</param>
+        /// <returns>Изображение созданное по переданным параметрам.</returns>
         private static BitmapSource ImgGenerate(Pixel[,] pixels /*функция извлечения цвета и возможно маска*/) {
             int width = pixels.GetLength(1);
             int height = pixels.GetLength(0);
@@ -61,6 +66,11 @@ namespace Histogram_ver5._1.Outputs {
             }
             finally { wbmp.Unlock(); }
         }
+        /// <summary>
+        /// Метод возвращающий изображение для вывода.
+        /// </summary>
+        /// <param name="img">Изображение которое требуется вывести.</param>
+        /// <returns>Результирующее изображение.</returns>
         public static BitmapSource ImgOutput(Image img) {
             return ImgGenerate(img.GetData);
         }
@@ -104,6 +114,11 @@ namespace Histogram_ver5._1.Outputs {
         //    }
         //    finally { wbmp.Unlock(); }
         //}
+        /// <summary>
+        /// Метод для перевода любого типа цветовой схемы унаследованной от ColorBase.
+        /// </summary>
+        /// <param name="color">Цвет который подлежит выводу.</param>
+        /// <returns>Набор цветовых компонент в схеме RGB, которая используется для вывода.</returns>
         public static float[] OutputColor(ColorBase color) {
             if (color is RGB)
                 return new float[] { color.GetVal1, color.GetVal2, color.GetVal3 };
@@ -111,7 +126,7 @@ namespace Histogram_ver5._1.Outputs {
              if (color is HSV)
                 return Converter.HSVtoRGB(color.GetVal1, color.GetVal2, color.GetVal3);
             else
-                throw new IncorrectSchemeInput();
+                throw new IncorrectSchemeInputException("Output.OutputColor(ColorBase)");
         }
     }
 }

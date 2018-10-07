@@ -10,14 +10,14 @@ namespace Histogram_ver5._1 {
         Pixel[,] data;
         readonly int width, height;
         /// <summary>
-        /// Default constructor.
+        /// Конструктор по умолчанию для создания экземпляра класса Image.
         /// </summary>
         public Image() {
         }
         /// <summary>
-        /// Конструктор для начальной загрузки изображения.
+        /// Конструктор для создания экземпляра класса Immage при считывании изображения из контейнера BitmapSource.
         /// </summary>
-        /// <param name="bmps">Изображение считанное из файла.</param>
+        /// <param name="bmps">Изображение считанное из файла в контейнере BitmapSource.</param>
         /// <param name="state">Режим цветовой схемы.</param>
         public Image(BitmapSource bmps,ColorBase state) {
             try

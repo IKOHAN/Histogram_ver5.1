@@ -67,6 +67,7 @@
     </ApplicationDefinition>
     <Compile Include="Exceptions\IndexOutOfFrameException.cs" />
     <Compile Include="Exceptions\UnknownException.cs" />
+    <Compile Include="Exceptions\ValueRangeMismatchException.cs" />
     <Compile Include="Image\Image.cs" />
     <Compile Include="Output\Output.cs" />
     <Compile Include="ViewModel\Main\Loading_SP.cs" />
@@ -87,8 +88,8 @@
     <Compile Include="Color\HSV.cs" />
     <Compile Include="Color\ColorBase.cs" />
     <Compile Include="Color\RGB.cs" />
-    <Compile Include="Exceptions\IncorrectNumberofParams.cs" />
-    <Compile Include="Exceptions\IncorrectSchemeInput.cs" />
+    <Compile Include="Exceptions\IncorrectNumberofParamsException.cs" />
+    <Compile Include="Exceptions\IncorrectSchemeInputException.cs" />
     <Compile Include="ImageAndHistogramWindow.xaml.cs">
       <DependentUpon>ImageAndHistogramWindow.xaml</DependentUpon>
     </Compile>

@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Histogram_ver5._1.Exceptions {
-    class IncorrectSchemeInput : ApplicationException {
-        public IncorrectSchemeInput() {
+    class IncorrectSchemeInputException : ApplicationException {
+        public IncorrectSchemeInputException() {
         }
-        public IncorrectSchemeInput(string source) {
+        public IncorrectSchemeInputException(string source) {
             base.Source = source;
         }
-        public IncorrectSchemeInput(Exception e, string source) {
+        public IncorrectSchemeInputException(Exception e, string source) {
             base.Source = e.Source + " , " + source;
         }
         public override string Message => "Неопределенная цветовая схема.";

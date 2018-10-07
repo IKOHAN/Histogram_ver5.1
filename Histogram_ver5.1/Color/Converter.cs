@@ -7,17 +7,25 @@ using Histogram_ver5._1.Exceptions;
 
 namespace Histogram_ver5._1 {
    static class Converter {
+        /// <summary>
+        /// Метод для преобразования из цветовой схемы HSV в RGB. Принимает и возвращает типы унаследованные от ColorBase.
+        /// </summary>
+        /// <param name="color">Исходный цвет, любого типа унаследованного от ColorBase.</param>
+        /// <returns>Цвет представленный в схеме RGB.</returns>
         public static ColorBase HSVtoRGB(ColorBase color) {
             if (color is HSV)
-            {
                 return new RGB(HSVtoRGB(color.GetVal1, color.GetVal2, color.GetVal3));
-            }
             else
                 if (color is RGB)
                 return color;
             else
-                throw new IncorrectSchemeInput();
+                throw new IncorrectSchemeInputException();
         }
+        /// <summary>
+        /// Метод для преобразования из цветовой схемы RGB в HSV. Принимает и возвращает типы унаследованные от ColorBase.
+        /// </summary>
+        /// <param name="color">Исходный цвет, любого типа унаследованного от ColorBase.</param>
+        /// <returns>Цвет представленный в схеме HSV.</returns>
         public static ColorBase RGBtoHSV(ColorBase color) {
             if (color is RGB)
             {
@@ -27,8 +35,13 @@ namespace Histogram_ver5._1 {
                 if (color is HSV)
                 return color;
             else
-                throw new IncorrectSchemeInput();
+                throw new IncorrectSchemeInputException();
         }
+        /// <summary>
+        /// Преобразование цветовых компонент схемы HSV в схему RGB.
+        /// </summary>
+        /// <param name="value">Цветовые компоненты схемы HSV.</param>
+        /// <returns>Цветовые компоненты схемы RGB.</returns>
         public static float[] HSVtoRGB(params float[] value) {
             float min, inc, dec;
             int H = ( (int) ( value[0] / 60f ) ) % 6;
@@ -75,6 +88,11 @@ namespace Histogram_ver5._1 {
             tmp[2] *= 2.55f;
             return tmp;
         }
+        /// <summary>
+        /// Преобразование цветовых компонент схемы RGB в схему HSV.
+        /// </summary>
+        /// <param name="value">Цветовые компоненты схемы RGB.</param>
+        /// <returns>Цветовые компоненты схемы HSV.</returns>
         public static float[] RGBtoHSV(params float[] value) {
             float[] tmp = new float[3];
             tmp[0] = value[0] / 255f;
@@ -101,6 +119,12 @@ namespace Histogram_ver5._1 {
             res[2] = max * 100f;
             return res;
         }
+        /// <summary>
+        /// Создание цвета по указанной схемы из переданных цветовых компонент.
+        /// </summary>
+        /// <param name="state">Схема в которой требуется представить цвет.</param>
+        /// <param name="value">Компоненты для создания цвета.</param>
+        /// <returns></returns>
         public static ColorBase Creator(ColorBase state, params float[] value) {
             if (state is RGB)
                 return new RGB(value);
@@ -108,7 +132,7 @@ namespace Histogram_ver5._1 {
                 if (state is HSV)
                 return new HSV(value);
             else
-                throw new IncorrectSchemeInput();
+                throw new IncorrectSchemeInputException();
         }
     }
 }

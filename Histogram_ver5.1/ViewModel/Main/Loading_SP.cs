@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using Histogram_ver5._1.Exceptions;
 using Histogram_ver5._1.Outputs;
+using Histogram_ver5._1;
 
 namespace Histogram_ver5._1.ViewModeling {
   partial class ViewModel {
@@ -37,12 +38,15 @@ namespace Histogram_ver5._1.ViewModeling {
             }
         }
         /// <summary>
-        /// Show image and histograms.
+        /// Метод для вывода изображения и цветовых гистограмм.
         /// </summary>
         static void OutputImgandHist() {
             Image_Show.Image_Show_IMG.Source = Output.ImgOutput(img);
             //Hist_drawer();
         }
+        /// <summary>
+        /// Метод соответствующий нажатию кнопки Load_BTN.
+        /// </summary>
         public static void Load_BTN_Click() {
             if (img != null)
             {

@@ -27,7 +27,7 @@ namespace Histogram_ver5._1.ViewModeling {
         static ImageAndHistogramWindow Image_Show;
         static MainWindow Main;
         /// <summary>
-        /// Constructor for interlayer with program logic.
+        /// Конструктор для создания экземпляра класса который связывает логику программы с интерфейсом пользователя.
         /// </summary>
         /// <param name="main">MainWindow</param>
         /// <param name="imageAndHistogram">Window with image and histogram.</param>
